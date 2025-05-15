@@ -58,7 +58,7 @@ function GoAntd(){
     try {
       const res = await fetch(url);
       if (!res.ok) {
-        throw new Error('网络响应不正常');
+        throw new Error('网络异常');
       }
       const data = await res.json(); // 解析响应体
       console.log("获取表格数据成功：", data);
@@ -75,11 +75,11 @@ function GoAntd(){
 
   
   useEffect(() => {
-    console.log("useeffect中打印tableSource:", tableSource)
+    //console.log("useeffect中打印tableSource:", tableSource)
   }, [tableSource])
 
   useEffect(() => {
-    console.log("打印currentTab:", currentTab, typeof(currentTab))
+    //console.log("打印currentTab:", currentTab, typeof(currentTab))
     if(currentTab === '1'){
       fetchData(); 
     }
@@ -90,11 +90,11 @@ function GoAntd(){
     showCompent = <div><Table columns={ tableColumns } dataSource={ tableSource } /> </div>
   }
   if(currentTab === 2){
-    showCompent = <div>菜单导航</div>
+    showCompent = <div>菜单导航：待完成</div>
   }
 
   if(currentTab === 3){
-    showCompent = <div>其他</div>  
+    showCompent = <div>其他：待完成</div>  
   }
 
   return (
